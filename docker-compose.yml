@@ -11,8 +11,8 @@ services:
     container_name: client
     depends_on:
       - api
-    links:
-      - api
+    networks:
+      - network1
   api:
     build: ./api
     # volumes:
@@ -22,3 +22,8 @@ services:
     #   - 3000:80
     # - 3001:3001
     container_name: api
+    networks:
+      - network1
+
+networks:
+  network1:
