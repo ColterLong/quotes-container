@@ -4,4 +4,4 @@
 
 azure-functions
 
-pyodbc
+mysql-connector-python

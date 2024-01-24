@@ -7,12 +7,11 @@ services:
     #   - /node_modules
     ports:
       - 8080:80
-      # - 5001:80
     container_name: client
     depends_on:
       - api
     networks:
-      - network1
+      - frontend
   api:
     build: ./api
     # volumes:
@@ -20,10 +19,37 @@ services:
     #   - /server/node_modules
     # ports:
     #   - 3000:80
-    # - 3001:3001
+    environment:
+      HOST_STRING: database
+      DATABASE_STRING: ${DATABASE_STRING}
+      USER_STRING: ${USER_STRING}
+      PASSWORD_STRING: ${PASSWORD_STRING}
     container_name: api
+    depends_on:
+      - database
     networks:
-      - network1
+      - frontend
+      - backend
+
+  database:
+    image: mysql:8.3.0
+    volumes:
+      # persist database
+      # - "db_data:/var/lib/mysql"
+      # mount schema file
+      - "./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql"
+    container_name: database
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${DATABASE_STRING}
+      MYSQL_USER: ${USER_STRING}
+      MYSQL_PASSWORD: ${PASSWORD_STRING}
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD_STRING}
+    networks:
+      - backend
+    restart: always
 
 networks:
-  network1:
+  frontend:
+  backend:
