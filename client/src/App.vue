@@ -9,8 +9,6 @@ const loading = ref(true);
 onMounted(() => {
   axios.get('api/getQuotes')
     .then((res) => {
-      // console.log('hope there are quotes below')
-      // console.log(res.data)
       quotes.value = res.data;
     })
     .catch((err) => {
@@ -18,15 +16,6 @@ onMounted(() => {
     })
     // eslint-disable-next-line no-return-assign
     .finally(() => (loading.value = false));
-
-  // quotes.value = [{
-  //   name: 'test 1',
-  //   text: 'quote text 1',
-  // }, {
-  //   name: 'test 2',
-  //   text: 'quote text 2',
-  // }];
-  // loading.value = false;
 });
 </script>
 

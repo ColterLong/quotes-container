@@ -24,7 +24,6 @@ defineProps({
 }
 .quote:hover {
   background-color: #547296;
-  /* background-color: #0e233e; */
 }
 
 .name, .text {

@@ -2,9 +2,6 @@ version: '3.8'
 services:
   client:
     build: ./client/
-    # volumes:
-    #   - ./:/app
-    #   - /node_modules
     ports:
       - 8080:80
     container_name: client
@@ -14,11 +11,6 @@ services:
       - frontend
   api:
     build: ./api
-    # volumes:
-    #   - ./server:/server
-    #   - /server/node_modules
-    # ports:
-    #   - 3000:80
     environment:
       HOST_STRING: database
       DATABASE_STRING: ${DATABASE_STRING}
@@ -34,13 +26,10 @@ services:
   database:
     image: mysql:8.3.0
     volumes:
-      # persist database
-      # - "db_data:/var/lib/mysql"
-      # mount schema file
       - "./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql"
     container_name: database
-    ports:
-      - "3306:3306"
+    expose:
+      - "3306"
     environment:
       MYSQL_DATABASE: ${DATABASE_STRING}
       MYSQL_USER: ${USER_STRING}
