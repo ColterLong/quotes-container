@@ -12,16 +12,19 @@ Frontend
 ---
 
 image: node and nginx
+
 Vue, JS, Nginx
 
 Backend
 ---
 
 image: azure-functions/python
+
 Azure function, Python
 
 Database
 ---
 
 image: mysql
+
 Mysql
