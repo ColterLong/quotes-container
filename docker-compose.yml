@@ -4,7 +4,6 @@ services:
     build: ./client/
     ports:
       - 8080:80
-    container_name: client
     depends_on:
       - api
     networks:
@@ -16,7 +15,6 @@ services:
       DATABASE_STRING: ${DATABASE_STRING}
       USER_STRING: ${USER_STRING}
       PASSWORD_STRING: ${PASSWORD_STRING}
-    container_name: api
     depends_on:
       - database
     networks:
@@ -29,9 +27,6 @@ services:
       dockerfile: Dockerfile
       args:
         MYSQL_DATABASE: ${DATABASE_STRING}
-    container_name: database
-    expose:
-      - "3306"
     environment:
       MYSQL_DATABASE: ${DATABASE_STRING}
       MYSQL_USER: ${USER_STRING}
