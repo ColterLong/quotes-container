@@ -24,9 +24,11 @@ services:
       - backend
 
   database:
-    image: mysql:8.3.0
-    volumes:
-      - "./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql"
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+      args:
+        MYSQL_DATABASE: ${DATABASE_STRING}
     container_name: database
     expose:
       - "3306"

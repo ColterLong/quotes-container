@@ -1,5 +1,4 @@
--- CREATE DATABASE quotesDb;
-USE quotesDb;
+USE MYSQL_DATABASE;
 CREATE TABLE quotes (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(30),
