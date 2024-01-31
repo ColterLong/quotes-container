@@ -10,6 +10,8 @@ services:
       - frontend
   api:
     build: ./api
+    # ports:
+    #   - 80:80
     environment:
       HOST_STRING: database
       DATABASE_STRING: ${DATABASE_STRING}
@@ -27,6 +29,8 @@ services:
       dockerfile: Dockerfile
       args:
         MYSQL_DATABASE: ${DATABASE_STRING}
+    # ports:
+    #   - 3306:3306
     environment:
       MYSQL_DATABASE: ${DATABASE_STRING}
       MYSQL_USER: ${USER_STRING}
