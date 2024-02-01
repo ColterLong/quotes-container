@@ -20,8 +20,12 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 80
-        # env:
-        # - name: HOST_STRING
+        env:
+        - name: API_URL
+          valueFrom: 
+            configMapKeyRef:
+              name: api-configmap
+              key: api_url
         #   valueFrom: 
         #     configMapKeyRef:
         #       name: database-configmap
