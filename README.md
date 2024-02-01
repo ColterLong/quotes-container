@@ -7,13 +7,14 @@ Need literal '.env' file with the following properties
 - USER_STRING
 - PASSWORD_STRING
 - ROOT_PASSWORD_STRING
+- API_URL
 
 Frontend
 ---
 
 image: node and nginx
 
-Vue, JS, Nginx
+Vue, JS, Nginx with reverse proxy
 
 Backend
 ---
