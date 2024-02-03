@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: client
-        image: client
-        imagePullPolicy: Never
+        image: colterlongcr.azurecr.io/clong/client
+        # imagePullPolicy: Never
         ports:
         - containerPort: 80
         env:

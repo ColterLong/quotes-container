@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: database
-          image: database
-          imagePullPolicy: Never
+          image: colterlongcr.azurecr.io/clong/database
+          # imagePullPolicy: Never
           ports:
           - containerPort: 3306
           env:
