@@ -66,11 +66,12 @@ jobs:
             azcliversion: 2.0.72
             inlineScript: |
               az account show
+              ls -a
 
       # # Builds and pushes an image up to your Azure Container Registry
       - name: Build and push image to ACR
         run: |
-          az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.CLIENT_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} ../../client/
+          az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.CLIENT_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} client/
 
 
 # do 1 image
