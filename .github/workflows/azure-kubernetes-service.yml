@@ -79,7 +79,7 @@ jobs:
           
       - name: Build and push database image to ACR
         run: |
-          az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.DATABASE_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} --build-arg MYSQL_DATABASE=${{ vars.MYSQL_DATABASE }} database/
+          az acr build --build-arg MYSQL_DATABASE=${{ vars.MYSQL_DATABASE }} --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.DATABASE_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} database/
 
             
 
