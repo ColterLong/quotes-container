@@ -68,13 +68,20 @@ jobs:
               az account show
               ls -a
 
-      # # Builds and pushes an image up to your Azure Container Registry
-      - name: Build and push image to ACR
+      # Builds and pushes images up to your Azure Container Registry
+      - name: Build and push client image to ACR
         run: |
           az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.CLIENT_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} client/
-          az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.API_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} api/
-          az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.DATABASE_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} --build-arg ${{ vars.MYSQL_DATABASE_BUILD_ARG }} database/
 
+      - name: Build and push api image to ACR
+        run: |
+          az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.API_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} api/
+          
+      - name: Build and push database image to ACR
+        run: |
+          az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.DATABASE_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} --build-arg MYSQL_DATABASE=${{ vars.MYSQL_DATABASE }} database/
+
+            
 
 # do 1 image
 # then all 3
