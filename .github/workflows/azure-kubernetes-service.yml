@@ -73,7 +73,7 @@ jobs:
         run: |
           az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.CLIENT_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} client/
           az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.API_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} api/
-          az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.DATABASE_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} --build-arg ${{ vars.MYSQL_DATABASE }} database/
+          az acr build --image ${{ vars.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ vars.DATABASE_CONTAINER_NAME }}:${{ github.sha }} --registry ${{ vars.AZURE_CONTAINER_REGISTRY }} -g ${{ vars.RESOURCE_GROUP }} --build-arg ${{ vars.MYSQL_DATABASE_BUILD_ARG }} database/
 
 
 # do 1 image
