@@ -1,31 +1,39 @@
-Hello and welcome to my project.
----
+# Top 5 Quotes App
 
-Need literal '.env' file with the following properties
+## Table of contents
 
-- DATABASE_STRING
-- USER_STRING
-- PASSWORD_STRING
-- ROOT_PASSWORD_STRING
-- API_URL
+- [Overview](#overview)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Useful resources](#useful-resources)
 
-Frontend
----
+## Overview
 
-image: node and nginx
+I sought to build a full stack application utilizing seperate docker images for the frontend, backend and database. Also to utilize kubernetes with Azure cloud offerings and tie it all together with github actions.
 
-Vue, JS, Nginx with reverse proxy
+### Screenshot
 
-Backend
----
+![](./images/quotes-website.png)
 
-image: azure-functions/python
+### Links
 
-Azure function, Python
+Live Site URL: [AKS live app](http://172.200.224.235/)
 
-Database
----
+## My process
 
-image: mysql
+- Frontend: Developed a responsive user interface using Vue.js with Nginx reverse proxy to provide seamless integration with the backend
+- Backend: Created RESTful API with Azure Functions allowing seamless communication between front and backend
+- Database: Designed a relational database schema using MySQL, ensuring efficient data storage and retrieval
+- Infrastructure: Orchestrated and deployed the application to Azure Kubernetes Service via Github Actions, Azure Container Registry and kubernetes manifests
 
-Mysql
+### Built with
+
+- Frontend: node and nginx containers
+- Backend: Azure functions container
+- Database: Mysql container
+
+### Useful resources
+
+- [Cheep kubernetes in Azure](https://trstringer.com/cheap-kubernetes-in-azure/)
