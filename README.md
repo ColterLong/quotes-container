@@ -23,10 +23,10 @@ Live Site URL: [AKS live app](http://172.200.224.235/)
 
 ## My process
 
-- Frontend: Developed a responsive user interface using Vue.js with Nginx reverse proxy to provide seamless integration with the backend
+- Frontend: Developed a responsive user interface using Vue.js and Nginx reverse proxy
 - Backend: Created RESTful API with Azure Functions allowing seamless communication between front and backend
 - Database: Designed a relational database schema using MySQL, ensuring efficient data storage and retrieval
-- Infrastructure: Orchestrated and deployed the application to Azure Kubernetes Service via Github Actions, Azure Container Registry and kubernetes manifests
+- Infrastructure: Orchestrated and deployed the application to Azure Kubernetes Service via Github Actions utilizing Azure Container Registry and kubernetes manifests
 
 ### Built with
 
