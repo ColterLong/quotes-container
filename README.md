@@ -37,3 +37,5 @@ Live Site URL: [AKS live app](http://172.200.224.235/)
 ### Useful resources
 
 - [Cheep kubernetes in Azure](https://trstringer.com/cheap-kubernetes-in-azure/)
+
+Thanks!
