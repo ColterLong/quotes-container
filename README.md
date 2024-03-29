@@ -17,10 +17,6 @@ I sought to build a full stack application utilizing seperate docker images for 
 
 ![](./images/quotes-website.png)
 
-### Links
-
-Live Site URL: [AKS live app](http://172.200.224.235/)
-
 ## My process
 
 - Frontend: Developed a responsive user interface using Vue.js and Nginx reverse proxy
